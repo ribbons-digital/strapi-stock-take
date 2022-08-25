@@ -1,0 +1,17 @@
+query queryProducts {
+  products {
+    data {
+      id
+      attributes {
+        name
+        items {
+          data {
+            attributes {
+              quantity
+            }
+          }
+        }
+      }
+    }
+  }
+}

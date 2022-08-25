@@ -1,0 +1,37 @@
+{
+    "kind": "collectionType",
+    "collectionName": "orders",
+    "info": {
+        "singularName": "order",
+        "pluralName": "orders",
+        "displayName": "order",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "orderNumber": {
+            "type": "biginteger",
+            "required": true,
+            "unique": true
+        },
+        "orderDate": {
+            "type": "date",
+            "required": true
+        },
+        "orderedItems": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::ordered-item.ordered-item",
+            "mappedBy": "order"
+        },
+        "products": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::product.product",
+            "inversedBy": "inOrders"
+        }
+    }
+}
